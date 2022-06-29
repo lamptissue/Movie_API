@@ -1,3 +1,4 @@
+// importing modules
 const http = require('http'),
   fs = require('fs'),
   url = require('url');
@@ -15,6 +16,7 @@ http.createServer((request, response) => {
     }
   });
 
+//   check if URL contains documentation if not, go to index.html
   if (q.pathname.includes('documentation')) {
     filePath = (__dirname + '/documentation.html');
   } else {
