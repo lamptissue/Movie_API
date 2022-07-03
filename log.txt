@@ -7,3 +7,5 @@ Timestamp: Wed Jun 29 2022 16:12:09 GMT+0100 (British Summer Time)
 URL: /documentation
 Timestamp: Wed Jun 29 2022 16:12:15 GMT+0100 (British Summer Time)
 
+::1 - - [03/Jul/2022:17:22:26 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [03/Jul/2022:17:25:05 +0000] "GET /test HTTP/1.1" 404 143 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
