@@ -21,142 +21,245 @@
           <th>Request</th>
           <th>URL</th>
           <th>HTTP Method</th>
-          <th>Query parameters</th>
           <th>Request body data format</th>
           <th>Response body data format</th>
         </tr>
         <tr>
-          <td>Return a list of ALL movies to the use</td>
+          <td>Return a list of ALL movies to the user</td>
           <td>/movies</td>
           <td>GET</td>
           <td>None</td>
-          <td>None</td>
           <td>
-            A JSON object holding data about all movies: {<br />
-            "title": "The Shawshank Redemption",<br />
-            "year": "1994",<br />
-            "genre": {<br />
-            "name": "Drama" },<br />
-            "director": "Frank Darabont" <br />}
+            A JSON object holding data about all movies: { <br />
+            "Genre": {<br />
+            "Name": "Thriller",<br />
+            "Description": "Thriller film, also known as suspense film or
+            suspense thriller, is a broad film genre that involves excitement
+            and suspense in the audience."<br />
+            },<br />
+            "Director": {<br />
+            "Name": "Jonathan Demme",<br />
+            "Bio": "Robert Jonathan Demme was an American director, producer,
+            and screenwriter.",<br />
+            "Birth": "1944",<br />
+            "Death": "2017"<br />
+            },<br />
+            "Actors": [],<br />
+            "_id": "62d18053203c4dfb2ec6b4b9",<br />
+            "Title": "Silence of the Lambs",<br />
+            "Description": "A young FBI cadet must receive the help of an
+            incarcerated and manipulative cannibal killer to help catch another
+            serial killer.",<br />
+            "ImagePath": "silenceofthelambs.png",<br />
+            "Featured": true<br />
+            },<br />
           </td>
         </tr>
         <tr>
           <td>Return data about a single movie by title to the user</td>
-          <td>/movies/[title]</td>
+          <td>/movies/:title</td>
           <td>GET</td>
-          <td>:title</td>
           <td>None</td>
           <td>
             A JSON object holding data about the requested movie: { <br />
-            "title": "The Godfather",<br />
-            "year": "1972",<br />
-            "genre": {<br />
-            "name": "Crime"},<br />
-            "director": "Francis Ford Coppola"<br />
-            }
+            "Genre": {<br />
+            "Name": "Crime",<br />
+            "Description": "Crime film is a genre that revolves around the
+            action of a criminal mastermind. A Crime film will often revolve
+            around the criminal himself, chronicling his rise and fall. Some
+            Crime films will have a storyline that follows the criminal's
+            victim, yet others follow the person in pursuit of the criminal."<br />
+            },<br />
+            "Director": {<br />
+            "Name": "Francis Ford Coppola",<br />
+            "Bio": " Francis Ford Coppola, American motion-picture director,
+            writer, and producer whose films range from sweeping epics to
+            small-scale character studies. As the director of films such as The
+            Godfather (1972), The Conversation (1974), and Apocalypse Now
+            (1979), he enjoyed his greatest success and influence in the 1970s,
+            when he attempted to create an alternative to the Hollywood system
+            of film production and distribution."<br />
+            },<br />
+            "Actors": [],<br />
+            "_id": "62d18a8c203c4dfb2ec6b4bc",<br />
+            "Title": "The Godfather",<br />
+            "Description": "The aging patriarch of an organized crime dynasty in
+            postwar New York City transfers control of his clandestine empire to
+            his reluctant youngest son.",<br />
+            "Date": "1972",<br />
+            "ImagePath":
+            "https://www.imdb.com/title/tt0068646/mediaviewer/rm746868224/?ref_=ext_shr_lnk'",<br />
+            "Featured": true,<br />
+            }<br />
           </td>
         </tr>
         <tr>
           <td>Return data about a genre by name/title</td>
-          <td>/movies/genre/[name]</td>
+          <td>/movies/genre/:name</td>
           <td>GET</td>
-          <td>:genreName</td>
           <td>None</td>
           <td>
-            A JSON object holding data about the requested genre: {<br />
-            "name": "Drama"<br />
-            }
+            A JSON object holding data about the requested genre: <br />
+            {<br />
+            "Name": "Drama",<br />
+            "Description": "The drama genre features stories with high stakes
+            and a lot of conflicts. They’re plot-driven and demand that every
+            character and scene move the story forward. Dramas follow a clearly
+            defined narrative plot structure, portraying real-life scenarios or
+            extreme situations with emotionally-driven characters. Films that
+            fall into drama sub-genres include historical drama, romantic drama,
+            teen drama, medical drama, docudrama, and film noir."<br />
+            }<br />
           </td>
         </tr>
         <tr>
           <td>Return data about a director by name</td>
-          <td>/movies/directors/[name]</td>
+          <td>/movies/directors/:name</td>
           <td>GET</td>
-          <td>:directorName</td>
           <td>None</td>
           <td>
-            A JSON object holding data about the requested director: { <br />
-            "Peter Jackson"<br />
+            A JSON object holding data about the requested director: {<br />
+            "Name": "Peter Jackson",<br />
+            "Bio": "Sir Peter Robert Jackson ONZ KNZM is a New Zealand film
+            director, screenwriter and producer. He is best known as the
+            director, writer and producer of the Lord of the Rings trilogy and
+            the Hobbit trilogy, both of which are adapted from the novels of the
+            same name by J. R. R. Tolkien.",<br />
+            "Birth": "1961"<br />
+            }<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Get list of all users</td>
+          <td>/users</td>
+          <td>GET</td>
+          <td>None</td>
+          <td>
+            A JSON object holding all user's data: { <br />
+            "_id": "62d192f2203c4dfb2ec6b4c3",<br />
+            "username": "Smith24",<br />
+            "password": "password123",<br />
+            "email": "smith24@hotmail.com",<br />
+            "Birthday": "1964-07-23T00:00:00.000Z",<br />
+            "FavouriteMovies": [<br />
+            "62d18053203c4dfb2ec6b4b9"<br />
+            ]<br />
             }
+          </td>
+        </tr>
+        <tr>
+          <td>Get user info by username</td>
+          <td>/users/:username</td>
+          <td>GET</td>
+          <td>None</td>
+          <td>
+            A JSON object holding a user's data: { <br />
+            "_id": "62d195a8203c4dfb2ec6b4c6",<br />
+            "username": "minik",<br />
+            "password": "runningoutofideas29",<br />
+            "email": "minik@hotmail.co.uk",<br />
+            "Birthday": "2001-12-06T00:00:00.000Z",<br />
+            "FavouriteMovies": [<br />
+            "62d18a8c203c4dfb2ec6b4bc",<br />
+            "62d18cea203c4dfb2ec6b4be"<br />
+            ]<br />
+            }<br />
           </td>
         </tr>
         <tr>
           <td>Allow new users to register</td>
           <td>/users</td>
           <td>POST</td>
-          <td>None</td>
           <td>
-            A JSON object holding user data: { <br />
-            "name": "Jane", <br />
-            "favouriteMovie": []<br />
-            }
+            A JSON object holding user data: <br />
+            { <br />
+            "username" : "testuser", <br />
+            "password" : "testpassword", <br />
+            "email" : "testemail@hotmail.com", <br />
+            "Birthday" : "1992-05-09" <br />
+            } <br />
           </td>
           <td>
-            A JSON objects holding new user data: { <br />
-            "name": "Jane",<br />
-            "favouriteMovie": [],<br />
-            "id": "2913dc82-92eb-44b5-b97c-b0449995d0da"<br />
-            }
+            A JSON objects holding new user data: <br />
+            { <br />
+            "_id": "62e1a204a99bb00dbe3da6f4",<br />
+            "username" : "testuser", <br />
+            "password" : "testpassword", <br />
+            "email" : "testemail@hotmail.com", <br />
+            "Birthday" : "1992-05-09" T00:00:00.000Z",<br />
+            "FavouriteMovies": [],<br />
+            "__v": 0<br />
+            } <br />
+          </td>
+        </tr>
+
+        <tr>
+          <td>Allow users to add a movie to their list of favorites</td>
+          <td>/users/:username/movie/:MovieID</td>
+          <td>POST</td>
+          <td>None</td>
+          <td>
+            A JSON object holding updated data: {<br />
+            " id": "6219649e1c886e183205bbc"<br />
+            "username": "testuser updated"<br />
+            "password": "passwordupdated"<br />
+            "email": "updatedemail@hotmail.com"<br />
+            "Birthday": "1992-04-10T00:00:00.000z"<br />
+            "FavouriteMovies":<br />
+            "62d18£23203c4dfb2ec6b4c2"],<br />
+            "__v": 0<br />
+            } <br />
           </td>
         </tr>
         <tr>
           <td>Allow users to update their user info</td>
-          <td>/users/[username]</td>
+          <td>/users/:username</td>
           <td>PUT</td>
-          <td>:id</td>
           <td>
             A JSON object holding new user's name: <br />
-            {<br />
-            id: 1,<br />
-            name: "Paul",<br />
-            favouriteMovie: [],<br />
-            }
+            { <br />
+            "username" : "testuser updated",<br />
+            "password" : "passwordupdated",<br />
+            "email" : "updatedemail@hotmail.com",<br />
+            "Birthday" : "1992-04-10"<br />
+            }<br />
           </td>
           <td>
-            A JSON object holding new user's data: {<br />
-            id: 1,<br />
-            name: "Paul Updated",<br />
-            favouriteMovie:[],<br />
-            }
+            A JSON object holding new user's data: { <br />
+            "_id": "62e1a204a99bb00dbe3da6f4",<br />
+            "username": "testuser updated",<br />
+            "password": "passwordupdated",<br />
+            "email": "updatedemail@hotmail.com",<br />
+            "Birthday": "1992-04-10T00:00:00.000Z",<br />
+            "FavouriteMovies": [],<br />
+            "__v": 0<br />
+            }<br />
           </td>
         </tr>
-        <tr>
-          <td>Allow users to add a movie to their list of favorites</td>
-          <td>/users/[id]/[movieTitle]</td>
-          <td>POST</td>
-          <td>:id, :movieTitle</td>
-          <td>None</td>
-          <td>
-            A JSON object holding updated data: {<br />
-            id: 1,<br />
-            name: "Paul Updated",<br />
-            favouriteMovie:["The Godfather"],<br />
-            }
-          </td>
-        </tr>
+
         <tr>
           <td>Allow users to remove a movie from their list of favorites</td>
-          <td>/users/:id/:movieTitle</td>
+          <td>/users/:username/movies/:MovieID</td>
           <td>DELETE</td>
-          <td>:id, :movieTitle</td>
           <td>None</td>
           <td>
             A JSON object holding the removed data: {<br />
-            id: 1,<br />
-            name: "Paul Updated",<br />
-            favouriteMovie:[],<br />
+            " id": "621a204a99bboodbeda6f4"<br />
+            "username": "testuser updated"<br />
+            "password": "passwordupdated<br />
+            "email": "updatedemail@hotmail.com"<br />
+            "Birthday": "1992-04-10T00:00:00.000z"<br />
+            "FavouriteMovies": [],<br />
             }
           </td>
         </tr>
         <tr>
           <td>Allow existing users to deregister</td>
-          <td>/users/[id]</td>
+          <td>/users/:username</td>
           <td>DELETE</td>
-          <td>:id</td>
           <td>None</td>
           <td>
-            Message confirming user has been deleted - User (id) has been
-            deleted
+            Message confirming user has been deleted - (Username) was deleted
           </td>
         </tr>
       </table>

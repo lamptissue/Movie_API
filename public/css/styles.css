@@ -1,4 +1,17 @@
-th, td {
-    border: 1px solid black;
-    padding: 5px;
+th,
+td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
